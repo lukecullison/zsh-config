@@ -116,5 +116,14 @@ alias vim=nvim
 # For leaving text on the screen after q out of less
 export LESS='-R -X'
 
+# Load and enable Git autocompletion for Zsh
+if [ -f ~/.zsh/completion/git-completion.zsh ]; then
+    source ~/.zsh/completion/git-completion.zsh > /dev/null 2>&1
+else
+    mkdir -p ~/.zsh/completion
+    curl -o ~/.zsh/completion/git-completion.zsh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+    source ~/.zsh/completion/git-completion.zsh > /dev/null 2>&1
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
